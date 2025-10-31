@@ -1,5 +1,6 @@
 import pandas as pd
 import joblib
+import os
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 from imblearn.over_sampling import SMOTE
@@ -29,6 +30,7 @@ def main():
 
     pipeline.fit(X_train, y_train)
 
+    os.mkdir('../model')
     joblib.dump(pipeline, '../model/trained_model_pipeline.pkl')
 
 if __name__ == '__main__':
